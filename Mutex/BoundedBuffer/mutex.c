@@ -4,7 +4,7 @@
 #include <stdlib.h>
 #include <unistd.h>
 
-int init();
+void init();
 void* consume(void* arg);
 void* produce(void* arg);
 int data();
@@ -23,7 +23,7 @@ pthread_cond_t full;
 //锁
 pthread_mutex_t mutex;
 
-int init()
+void init()
 {
     consumeIndex = 0;
     produceIndex = 0;
@@ -32,7 +32,6 @@ int init()
     pthread_cond_init(&full, NULL);
 
     srand(time(NULL)); // 只在程序开始调用一次
-    return 0;
 }
 
 void* consume(void* arg)
