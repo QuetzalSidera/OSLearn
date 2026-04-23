@@ -1,7 +1,7 @@
 SRC=$(wildcard *.c)
 OBJ=$(SRC:.c=.o)
 DEP=$(SRC:.c=.d)
-Target=mem
+Target=io
 
 $(Target):$(OBJ)
 	cc $^ -o $@
