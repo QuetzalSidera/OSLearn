@@ -42,8 +42,9 @@ void* consume(void* arg)
         printf("consume: %d\n", buffer[consumeIndex]);
         printf("\n");
         consumeIndex = (consumeIndex + 1) % BUFFER_SIZE;
-        sem_post(&empty);
+
         sem_post(&mutex);
+        sem_post(&empty);
         //12us
         usleep(12);
     }
@@ -61,9 +62,9 @@ void* produce(void* arg)
         printf("\n");
         produceIndex = (produceIndex + 1) % BUFFER_SIZE;
         buffer[produceIndex] = data();
-
-        sem_post(&full);
         sem_post(&mutex);
+        sem_post(&full);
+
 
         //10us
         usleep(10);

@@ -14,4 +14,7 @@ add_executable(OSLearn main.c
         Chapter4/Thread/thread.c
         Mutex/BoundedBuffer/mutex.c
         Mutex/BoundedBuffer/monitor.c
+        Mutex/SemWrite/mutex.c
+        Mutex/MutexWrite/sem.c
+        IPC/Fifo/main.c
 )
